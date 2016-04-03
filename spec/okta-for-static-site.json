@@ -1,0 +1,14 @@
+{
+  "oktaIssuer": "http://www.okta.com/exk639afihORpWA8e0h7",
+  "oktaSingleSignOnUrl": "https://dev-789324.oktapreview.com/app/thoughtworksdev789324_elearningthoughtworksbrasil_2/exk639afihORpWA8e0h7/sso/saml",
+  "oktaCert": "certs/okta.cert",
+  "oktaCookieName": "oktaData",
+  "sessionCookieName": "sessionId",
+  "sessionSecret": "techradar",
+  "redisUrl": "redis://127.0.0.1:6379",
+  "serverSslCert": "certs/cert.pem",
+  "serverSslKey": "certs/key.pem",
+  "serverPort": 443,
+  "staticSitePath": ".",
+  "compressionLevel": 9
+}

@@ -13,6 +13,8 @@ Use this npm module to serve your static site behind Okta Single Sign On.
 
 To use this software you need to create a SAML2 Okta App. More info here: http://developer.okta.com/docs/guides/oan_guidance.html.
 
+IMPORTANT: In the app configuration, user `https://DOMAIN:PORT/login` or `http://DOMAIN:PORT/login` in the field `Single Sign On URL`. Eg: `http://localhost:3000/login`.
+
 ## Installation
 
 ```
@@ -64,6 +66,10 @@ Program arguments are defined in this order of precedence:
 2. Config file
 3. Env var
 4. Configured defaults
+
+### Paths
+
+All relative paths use the dir where you started the command as base dir. You can use absolute paths, if you prefer.
 
 ## Examples of config file
 
