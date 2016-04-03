@@ -1,0 +1,4 @@
+{
+  "undef": true,
+  "predef": ["require", "module", "process", "describe", "it", "expect"]
+}
