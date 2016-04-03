@@ -1,6 +1,9 @@
 # Okta for Static Site
 
 [![Build Status](https://travis-ci.org/andreleite/okta-for-static-site.svg?branch=master)](https://travis-ci.org/andreleite/okta-for-static-site)
+[![npm version](https://badge.fury.io/js/okta-for-static-site.svg)](https://badge.fury.io/js/okta-for-static-site)
+
+[![NPM](https://nodei.co/npm/okta-for-static-site.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/okta-for-static-site/)
 
 ## Description
 
