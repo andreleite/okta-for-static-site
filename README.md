@@ -1,5 +1,7 @@
 # Okta for Static Site
 
+[![Build Status](https://travis-ci.org/andreleite/okta-for-static-site.svg?branch=master)](https://travis-ci.org/andreleite/okta-for-static-site)
+
 ## Description
 
 Use this npm module to serve your static site behind Okta Single Sign On.
