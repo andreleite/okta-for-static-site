@@ -1,7 +1,6 @@
 # Okta for Static Site
 
 [![Build Status](https://travis-ci.org/andreleite/okta-for-static-site.svg?branch=master)](https://travis-ci.org/andreleite/okta-for-static-site)
-[![npm version](https://badge.fury.io/js/okta-for-static-site.svg)](https://badge.fury.io/js/okta-for-static-site)
 
 [![NPM](https://nodei.co/npm/okta-for-static-site.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/okta-for-static-site/)
 
@@ -14,6 +13,8 @@ Use this npm module to serve your static site behind Okta Single Sign On.
 To use this software you need to create a SAML2 Okta App. More info here: http://developer.okta.com/docs/guides/oan_guidance.html.
 
 IMPORTANT: In the app configuration, use `https://DOMAIN:PORT/login` or `http://DOMAIN:PORT/login` in the field `Single Sign On URL`. Eg: `http://localhost:3000/login`.
+
+IMPORTANT 2: Don't put a static page in path starting with `/login`. This break the login system.
 
 ## Installation
 
@@ -36,10 +37,11 @@ Options:
   -f, --staticSitePath       Path to files to serve.              [default: "."]
   -x, --sessionSecret        Used to sign session cookie. Very important for
                              your security!                  [default: "secret"]
-  -r, --redisUrl             URL for connect with your Redis instance in the
+  -r, --redisUrl             URL for connect with your Redis instance, in the
                              format "redis://127.0.0.1:6379". We use Redis to
                              manage sessions. Without Redis, session data is
-                             stored in memory and errors are very commons.
+                             stored in memory, and doesn't have capacity to
+                             manage sessions for a production site.
   -o, --oktaCookieName       Name of the cookie with user info accessible from
                              your static site.            [default: "okta-data"]
   -s, --sessionCookieName    Name of signed cookie with session id.
@@ -118,3 +120,31 @@ All relative paths use the dir where you started the command as base dir. You ca
   "oktaCert": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIGAVPDStHJMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYDVQQGEwJVUzETMBEG\nA1U (...) luF\nN8KPXW8Vo5/A+5/yVeBaIV8rMtPUz7jc\n-----END CERTIFICATE-----\n"
 }
 ```
+
+## Features
+
+### User data
+
+All Atributte Staments configured in Okta are accessible in your static site. When an user make login, the system write a cookie with default name oktaData (you can change this with parameters). This cookie have a Json string with data and is accessible using Javascript.
+
+### Redis as session storage
+
+You should use Redis to manage sessions for your site. There is a parameter to inform the connection url in the form of `redis://127.0.0.1:6379`.
+
+Without Redis url, the system manage sessions in memory, and doesn't have capacity to manage sessions to a production site.
+
+### Redirect to correct page after login
+
+If a not logged user access a page in your site and is redirect to okta, after login he or she see the correct page and not the homepage.
+
+This resource use a cookie with name redirect. The cookie is deleted after login.
+
+### Logout url
+
+You can show a logout link in your static site. Just point to `/login/logout`.
+
+Logout delete the session cookie of your site and redirect your user to okta to close your session there.
+
+After logout, user is redirected to a login customized to redirect user to your homepage if login is made again.
+
+
