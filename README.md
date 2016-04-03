@@ -41,7 +41,8 @@ Options:
                              provide SSL certificate and key. You can inform a
                              path or a string with content of key.
 
-For more info go to https://github.com/andreleite/okta-for-static-site/
+You can use enviroment variables too. For more info go to
+https://github.com/andreleite/okta-for-static-site/
 ```
 
 ### Enviroment variables
