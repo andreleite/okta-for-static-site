@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "Use this npm module to serve your static site behind Okta Single Sign On",
   "main": "index.js",
+  "keywords": [
+    "okta",
+    "static",
+    "site",
+    "server",
+    "cli",
+    "saml"
+  ],
   "scripts": {
     "test": "jasmine"
   },
