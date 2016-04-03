@@ -56,7 +56,7 @@ https://github.com/andreleite/okta-for-static-site/
 
 ### Enviroment variables
 
-You can use enviroment variables. For example, to inform the value of `oktaIssuer`, use a enviroment variable with the name `OFSS_OKTA_ISSUER`. `OFSS_` is an added prefix to identify the variables that this software will read. Then, the original camel case variable name (`oktaIssuer`) is converted to a upper snake case (`OKTA_ISSUER`) and concatened with prefix.
+You can use enviroment variables. For example, to inform the value of `oktaIssuer`, use a enviroment variable with the name `OFSS_OKTA_ISSUER`. `OFSS_` is an added prefix to identify the variables that this software will read. Then, the original camel case variable name (`oktaIssuer`) is converted to an upper snake case (`OKTA_ISSUER`) and concatened with prefix.
 
 Program arguments are defined in this order of precedence:
 
