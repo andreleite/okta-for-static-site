@@ -42,6 +42,8 @@ Options:
                              manage sessions. Without Redis, session data is
                              stored in memory, and doesn't have capacity to
                              manage sessions for a production site.
+  -n, --custom404            Inform a custom 404 file to send to users in case
+                             of file not found.
   -o, --oktaCookieName       Name of the cookie with user info accessible from
                              your static site.            [default: "okta-data"]
   -s, --sessionCookieName    Name of signed cookie with session id.
@@ -147,4 +149,6 @@ Logout delete the session cookie of your site and redirect your user to okta to 
 
 After logout, user is redirected to a login customized to redirect user to your homepage if login is made again.
 
+### Custom 404 file
 
+Use the correspondent parameter to inform a custom 404 page.

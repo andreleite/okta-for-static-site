@@ -10,5 +10,6 @@
   "serverSslKey": "certs/key.pem",
   "serverPort": 443,
   "staticSitePath": ".",
-  "compressionLevel": 9
+  "compressionLevel": 9,
+  "custom404": "404/index.html"
 }
