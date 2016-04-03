@@ -4,6 +4,10 @@
 
 Use this npm module to serve your static site behind Okta Single Sign On.
 
+## Create an Okta App
+
+To use this software you need to create an SAML2 Okta App. More info here: http://developer.okta.com/docs/guides/oan_guidance.html.
+
 ## Installation
 
 ```
