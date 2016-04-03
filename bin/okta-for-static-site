@@ -1,44 +1,7 @@
 #!/usr/bin/env node
 
-var argv = require('optimist').argv;
-var options;
-var server;
-
-if (argv.h || argv.help) {
-  console.log([
-    'usage: okta-for-static-site [options]',
-    '',
-    'options:',
-    '',
-    '  -c --config            Path to json config file. You can put required information in config file or use CLI parameters. CLI parameters take precedence',
-    '',
-    '  --oktaIssuer           From your Okta app',
-    '  --oktaSingleSignOnUrl  From your Okta app',
-    '  --oktaCertPath         From your Okta app',
-    '  --sessionSecret        Used to sign session cookie',
-    '  --staticSitePath       Path to files to serve',
-    '  --oktaCookieName       Optional. Default is "oktaData"',
-    '  --sessionCookieName    Optional. Default is "SessionId"',
-    '  --redisUrl             Optional but recommended. We use Redis to manage sessions. Without Redis, session data is stored in memory and errors are very commons',
-    '  --serverSslCertPath    Optional. Use if you want https',
-    '  --serverSslKeyPath     Optional. Use if you want https',
-    '  --serverPort           Optional. Default is 3000',
-    '',
-    '  -h --help    Print this list and exit'
-  ].join('\n'));
-  process.exit();
-}
-
-if (!argv.c && !argv.config) {
-  console.log([
-    'You must provide the path to config file',
-    '',
-    'Use --help to see our help'
-  ].join('\n'));
-  process.exit();
-}
-
-options = require('../lib/options')(argv.c || argv.config);
-server = require('../lib/server');
+var argv = require('../lib/yargs');
+var options = require('../lib/options')(argv);
+var server = require('../lib/server');
 
 server();
