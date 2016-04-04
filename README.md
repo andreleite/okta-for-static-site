@@ -12,7 +12,7 @@ To use this software you need to create a SAML2 Okta App. More info here: http:/
 
 IMPORTANT: In the app configuration, use `https://DOMAIN:PORT/login` or `http://DOMAIN:PORT/login` in the field `Single Sign On URL`. Eg: `http://localhost:3000/login`.
 
-IMPORTANT 2: Don't put a static page in path starting with `/login`. This breaks the login system.
+IMPORTANT 2: Don't put a static page in any path starting with `/login`. This breaks the login system.
 
 ## Installation
 
