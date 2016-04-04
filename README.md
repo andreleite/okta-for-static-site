@@ -12,7 +12,7 @@ To use this software you need to create a SAML2 Okta App. More info here: http:/
 
 IMPORTANT: In the app configuration, use `https://DOMAIN:PORT/login` or `http://DOMAIN:PORT/login` in the field `Single Sign On URL`. Eg: `http://localhost:3000/login`.
 
-IMPORTANT 2: Don't put a static page in path starting with `/login`. This break the login system.
+IMPORTANT 2: Don't put a static page in path starting with `/login`. This breaks the login system.
 
 ## Installation
 
@@ -42,31 +42,35 @@ Options:
                              manage sessions for a production site.
   -n, --custom404            Inform a custom 404 file to send to users in case
                              of file not found.
+  -z, --compressionLevel     Compression level of served files. This is an
+                             integer in the range of 0 (no compression) to 9
+                             (maximum compression).               [default: "6"]
   -o, --oktaCookieName       Name of the cookie with user info accessible from
                              your static site.            [default: "okta-data"]
   -s, --sessionCookieName    Name of signed cookie with session id.
                                                          [default: "session-id"]
   -p, --serverPort           Port to use for the server.       [default: "3000"]
-  -j, --serverSslCert        Cert to use if you want https. To enable https
-                             provide SSL certificate and key. You can inform a
-                             path or a string with content of certificate.
+  -j, --serverSslCert        Certificate to use if you want https. To enable
+                             https provide SSL certificate and key. You can
+                             inform a path or a string with content of
+                             certificate.
   -k, --serverSslKey         Key to use if you want https. To enable https
                              provide SSL certificate and key. You can inform a
                              path or a string with content of key.
 
-You can use enviroment variables too. For more info go to
+You can use environment variables too. For more info go to
 https://github.com/andreleite/okta-for-static-site/
 ```
 
-### Enviroment variables
+### Environment variables
 
-You can use enviroment variables. For example, to inform the value of `oktaIssuer`, use a enviroment variable with the name `OFSS_OKTA_ISSUER`. `OFSS_` is an added prefix to identify the variables that this software will read. Then, the original camel case variable name (`oktaIssuer`) is converted to an upper snake case (`OKTA_ISSUER`) and concatened with prefix.
+You can use environment variables. For example, to inform the value of `oktaIssuer`, use an environment variable with the name `OFSS_OKTA_ISSUER`. `OFSS_` is an added prefix to identify the variables that this software will read. Then, the original camel case variable name (`oktaIssuer`) is converted to an upper snake case (`OKTA_ISSUER`) and concatened with prefix.
 
 Program arguments are defined in this order of precedence:
 
-1. Command line args
+1. Command line arguments
 2. Config file
-3. Env var
+3. Environment variable
 4. Configured defaults
 
 ### Paths
@@ -127,7 +131,7 @@ All relative paths use the dir where you started the command as base dir. You ca
 
 ### User data
 
-All Atributte Staments configured in Okta are accessible in your static site. When an user make login, the system write a cookie with default name oktaData (you can change this with parameters). This cookie have a Json string with data and is accessible using Javascript.
+All `Atributte Staments` configured in Okta are accessible in your static site. When an user logs in, the system write a cookie with default name oktaData (you can change this with parameters). This cookie has a json string with user data and is accessible using Javascript.
 
 ### Redis as session storage
 
@@ -137,15 +141,15 @@ Without Redis url, the system manage sessions in memory, and doesn't have capaci
 
 ### Redirect to correct page after login
 
-If a not logged user access a page in your site and is redirect to okta, after login he or she see the correct page and not the homepage.
+If a not logged user access a page in your site and is redirect to okta, after login he or she sees the correct page and not the homepage.
 
-This resource use a cookie with name redirect. The cookie is deleted after login.
+This resource uses a cookie named `redirect`. The cookie is deleted after login.
 
 ### Logout url
 
-You can show a logout link in your static site. Just point to `/login/logout`.
+You can show a logout link on your static site. Just point to `/login/logout`.
 
-Logout delete the session cookie of your site and redirect your user to okta to close your session there.
+Logout delete the session cookie of your site and redirect user to okta to close your session there.
 
 After logout, user is redirected to a login customized to redirect user to your homepage if login is made again.
 
