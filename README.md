@@ -89,7 +89,8 @@ All relative paths use the dir where you started the command as base dir. You ca
   "serverSslCert": "cert.pem",
   "serverSslKey": "key.pem",
   "serverPort": 443,
-  "staticSitePath": "public"
+  "staticSitePath": "public",
+  "custom404": "404/index.html"
 }
 ```
 
@@ -107,7 +108,8 @@ All relative paths use the dir where you started the command as base dir. You ca
   "serverSslCert": "-----BEGIN CERTIFICATE-----\nMIIEGzCCAwOgAwIBAgIJAMDQ9pOnWa7yMA0GCSqGSIb3DQEBCwUAMIGjMQswCQYD\nVQQ (...) Rbhl\nHAohrf8lAB1u/UTFZYBaTIxYrVDJosL06Y1NqPG4cg8oUAAZmNnG5ni6DsnNyag=\n-----END CERTIFICATE-----\n",
   "serverSslKey": "-----BEGIN RSA PRIVATE KEY-----\nMIIEogIBAAKCAQEA4o4mxoUIB92HJHwzDZYt0osdfeVlWzAlex3ZEixikETN4lJH\n5Zq (...) 3n/H\nHVPp5Y7RJ3HbHygNQuXi4goK7wDjYYndg1pLB7ZErcLV3nWTh8A=\n-----END RSA PRIVATE KEY-----\n",
   "serverPort": 443,
-  "staticSitePath": "public"
+  "staticSitePath": "public",
+  "custom404": "404/index.html"
 }
 ```
 
