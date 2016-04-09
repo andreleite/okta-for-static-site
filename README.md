@@ -156,4 +156,4 @@ After logout, user is redirected to a login customized to redirect user to your 
 
 ### Custom 404 file
 
-Use the correspondent parameter to inform a custom 404 page.
+Use the `custom404` parameter to inform a custom 404 page.
