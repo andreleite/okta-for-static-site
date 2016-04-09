@@ -11,14 +11,14 @@ Use this npm module to serve your static site behind Okta Single Sign On.
 
 To use this software you need to create a SAML2 Okta App. More info here: http://developer.okta.com/docs/guides/oan_guidance.html.
 
-IMPORTANT: In the app configuration, use `https://DOMAIN:PORT/login` or `http://DOMAIN:PORT/login` in the field `Single Sign On URL`. Eg: `http://localhost:3000/login`.
+IMPORTANT: In the app configuration, use `http[s]://DOMAIN:PORT/login` in the field `Single Sign On URL`. Eg: `http://localhost:3000/login`.
 
 IMPORTANT 2: Don't put a static page in any path starting with `/login`. This breaks the login system.
 
 ## Installation
 
 ```
-npm install okta-for-static-site -g
+[sudo] npm install okta-for-static-site -g
 ```
 
 ## Usage
