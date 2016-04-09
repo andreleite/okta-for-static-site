@@ -1,4 +1,4 @@
 {
   "undef": true,
-  "predef": ["require", "module", "process", "describe", "it", "expect"]
+  "predef": ["require", "module", "process", "jasmine", "describe", "beforeEach", "it", "expect", "spyOn"]
 }
