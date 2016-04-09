@@ -1,6 +1,6 @@
 {
   "name": "okta-for-static-site",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Use this npm module to serve your static site behind Okta Single Sign On",
   "main": "index.js",
   "keywords": [
