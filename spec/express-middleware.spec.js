@@ -164,8 +164,32 @@ describe('Middleware', function () {
   });
 
   describe('#custom404', function () {
+    var res;
+    var next;
+
+    beforeEach(function () {
+      res = {
+        status: function () { return res; },
+        sendFile: function () {}
+      };
+    });
+
     it('should be defined', function () {
       expect(middleware.custom404).toBeDefined();
+    });
+
+    describe('if custom404 is defined', function () {
+      it('should set status to 404', function () {
+        spyOn(res, 'status').and.returnValues(res);
+        middleware.custom404(res, res, next);
+        expect(res.status).toHaveBeenCalledWith(404);
+      });
+
+      it('should send 404 file', function () {
+        spyOn(res, 'sendFile');
+        middleware.custom404(res, res, next);
+        expect(res.sendFile).toHaveBeenCalledWith(options.custom404);
+      });
     });
   });
 });
