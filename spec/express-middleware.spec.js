@@ -126,8 +126,40 @@ describe('Middleware', function () {
   });
 
   describe('#logout', function () {
+    var req;
+    var res;
+    beforeEach(function () {
+      req = {
+        session: {
+          destroy: function () {}
+        }
+      };
+      res = {
+        clearCookie: function () {},
+        redirect: function () {}
+      };
+    });
+
     it('should be defined', function () {
       expect(middleware.logout).toBeDefined();
+    });
+
+    it('should destroy the session', function () {
+      spyOn(req.session, 'destroy');
+      middleware.logout(req, res);
+      expect(req.session.destroy).toHaveBeenCalled();
+    });
+
+    it('should clear user data cookie', function () {
+      spyOn(res, 'clearCookie');
+      middleware.logout(req, res);
+      expect(res.clearCookie).toHaveBeenCalledWith(options.oktaCookieName);
+    });
+
+    it('should redirect to Okta Logout Url', function () {
+      spyOn(res, 'redirect');
+      middleware.logout(req, res);
+      expect(res.redirect).toHaveBeenCalledWith(options.oktaLogoutUrl);
     });
   });
 
