@@ -62,6 +62,26 @@ describe('Middleware', function () {
   });
 
   describe('#login', function () {
+    var req;
+    var res;
+    beforeEach(function () {
+      req = {
+        session: {
+          passport: {
+            user: {}
+          }
+        },
+        cookies: {
+          redirect: null
+        }
+      };
+      res = {
+        cookie: function () {},
+        clearCookie: function () {},
+        redirect: function () {}
+      };
+    });
+
     it('should be defined', function () {
       expect(middleware.login).toBeDefined();
     });

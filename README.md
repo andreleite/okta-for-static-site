@@ -5,7 +5,7 @@
 
 ## Purpose
 
-Use this npm module to serve your static site behind Okta Single Sign On.
+Use this NPM module to serve your static site behind Okta Single Sign On.
 
 ## Create an Okta App
 
@@ -27,45 +27,27 @@ IMPORTANT 2: Don't put a static page in any path starting with `/login`. This br
 Usage: okta-for-static-site [options]
 
 Options:
-  -c, --config               JSON file with configuration.
-                                        [default: "./okta-for-static-site.json"]
-  -i, --oktaIssuer           From your Okta app.                      [required]
-  -u, --oktaSingleSignOnUrl  From your Okta app.                      [required]
-  -t, --oktaCert             From your Okta app. You can inform a path or the
-                             content of certificate.                  [required]
-  -f, --staticSitePath       Path to files to serve.              [default: "."]
-  -x, --sessionSecret        Used to sign session cookie. Very important for
-                             your security!                  [default: "secret"]
-  -r, --redisUrl             URL for connect with your Redis instance, in the
-                             format "redis://127.0.0.1:6379". We use Redis to
-                             manage sessions. Without Redis, session data is
-                             stored in memory, and doesn't have capacity to
-                             manage sessions for a production site.
-  -n, --custom404            Inform a custom 404 file to send to users in case
-                             of file not found.
-  -z, --compressionLevel     Compression level of served files. This is an
-                             integer in the range of 0 (no compression) to 9
-                             (maximum compression).               [default: "6"]
-  -o, --oktaCookieName       Name of the cookie with user info accessible from
-                             your static site.            [default: "okta-data"]
-  -s, --sessionCookieName    Name of signed cookie with session id.
-                                                         [default: "session-id"]
-  -p, --serverPort           Port to use for the server.       [default: "3000"]
-  -j, --serverSslCert        Certificate to use if you want https. To enable
-                             https provide SSL certificate and key. You can
-                             inform a path or a string with content of
-                             certificate.
-  -k, --serverSslKey         Key to use if you want https. To enable https
-                             provide SSL certificate and key. You can inform a
-                             path or a string with content of key.
+  -c, --config               JSON file with configuration.  [default: "./okta-for-static-site.json"]
+  -i, --oktaIssuer           From your Okta app.  [required]
+  -u, --oktaSingleSignOnUrl  From your Okta app.  [required]
+  -t, --oktaCert             From your Okta app. You can inform a path or the content of certificate.  [required]
+  -f, --staticSitePath       Path to files to serve.  [default: "."]
+  -x, --sessionSecret        Used to sign session cookie. Very important for your security!  [default: "secret"]
+  -r, --redisUrl             URL for connect with your redis instance, in the format "redis://127.0.0.1:6379". We use Redis to manage sessions. Without Redis, session data is stored in memory and doesn't have the capacity to manage sessions for a production site.
+  -n, --custom404            Inform a custom 404 file to send to users in case of file not found.
+  -z, --compressionLevel     Compression level of served files. This is an integer in the range of 0 (no compression) to 9 (maximum compression).  [default: "6"]
+  -o, --oktaCookieName       Name of the cookie with user info accessible from your static site.  [default: "okta-data"]
+  -s, --sessionCookieName    Name of signed cookie with session id.  [default: "session-id"]
+  -p, --serverPort           Port to use for the server.  [default: "3000"]
+  -j, --serverSslCert        Certificate to use if you want https. To enable https provide SSL certificate and key. You can inform a path or a string with the content of certificate.
+  -k, --serverSslKey         Key to use if you want https. To enable https provide SSL certificate and key. You can inform a path or a string with the content of key.
 
-You can use environment variables too. For more info go to
-https://github.com/andreleite/okta-for-static-site/
+You can use environment variables too. For more info go to https://github.com/andreleite/okta-for-static-site/
 ```
 
 ### Environment variables
 
-You can use environment variables. For example, to inform the value of `oktaIssuer`, use an environment variable with the name `OFSS_OKTA_ISSUER`. `OFSS_` is an added prefix to identify the variables that this software will read. Then, the original camel case variable name (`oktaIssuer`) is converted to an upper snake case (`OKTA_ISSUER`) and concatened with prefix.
+You can use environment variables. For example, to inform the value of `oktaIssuer`, use an environment variable with the name `OFSS_OKTA_ISSUER`. `OFSS_` is an added prefix to identify the variables that this software will read. Then, the original camel case variable name (`oktaIssuer`) is converted to an upper snake case (`OKTA_ISSUER`) and concatenated with the prefix.
 
 Program arguments are defined in this order of precedence:
 
@@ -76,7 +58,7 @@ Program arguments are defined in this order of precedence:
 
 ### Paths
 
-All relative paths use the dir where you started the command as base dir. You can use absolute paths, if you prefer.
+All relative paths use the directory where you started the command as base directory. You can use absolute paths if you prefer.
 
 ## Examples of config file
 
@@ -142,7 +124,7 @@ Without Redis url, the system manage sessions in memory, and doesn't have capaci
 
 ### Redirect to correct page after login
 
-If a not logged user access a page in your site and is redirect to okta, after login he or she sees the correct page and not the homepage.
+If a not logged user accesses a page on your site and is redirected to okta, after login, he or she sees the correct page and not the homepage.
 
 This resource uses a cookie named `redirect`. The cookie is deleted after login.
 
@@ -150,9 +132,9 @@ This resource uses a cookie named `redirect`. The cookie is deleted after login.
 
 You can show a logout link on your static site. Just point to `/login/logout`.
 
-Logout delete the session cookie of your site and redirect user to okta to close your session there.
+Logout deletes the session cookie of your site and redirects the user to okta's site to close your session there.
 
-After logout, user is redirected to a login customized to redirect user to your homepage if login is made again.
+After logout, the user is redirected to a login customized to redirect the user to your home page if login is made again.
 
 ### Custom 404 file
 
