@@ -4,7 +4,7 @@
   "oktaCert": "certs/okta.cert",
   "oktaCookieName": "oktaData",
   "sessionCookieName": "sessionId",
-  "sessionSecret": "techradar",
+  "sessionSecret": "secret",
   "redisUrl": "redis://127.0.0.1:6379",
   "serverSslCert": "certs/cert.pem",
   "serverSslKey": "certs/key.pem",
