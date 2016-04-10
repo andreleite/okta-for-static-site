@@ -85,6 +85,44 @@ describe('Middleware', function () {
     it('should be defined', function () {
       expect(middleware.login).toBeDefined();
     });
+
+    it('should save a cookie with user data', function () {
+      spyOn(res, 'cookie');
+      middleware.login(req, res);
+      expect(res.cookie).toHaveBeenCalledWith(options.oktaCookieName, req.session.passport.user);
+    });
+
+    it('should remove sensitive user data before save the cookie', function () {
+      spyOn(res, 'cookie');
+      req.session.passport.user = {
+        issuer: 'foo',
+        nameID: 'foo',
+        nameIDFormat: 'foo',
+        sessionIndex: 'foo'
+      };
+      middleware.login(req, res);
+      expect(res.cookie).toHaveBeenCalledWith(options.oktaCookieName, {});
+    });
+
+    it('should redirect to path specified in the redirect cookie', function () {
+      req.cookies.redirect = '/foo';
+      spyOn(res, 'redirect');
+      middleware.login(req, res);
+      expect(res.redirect).toHaveBeenCalledWith(req.cookies.redirect);
+    });
+
+    it('should erase redirect cookie when there is one', function () {
+      req.cookies.redirect = '/foo';
+      spyOn(res, 'clearCookie');
+      middleware.login(req, res);
+      expect(res.clearCookie).toHaveBeenCalledWith('redirect');
+    });
+
+    it('should redirect to "/" there is no redirect cookie', function () {
+      spyOn(res, 'redirect');
+      middleware.login(req, res);
+      expect(res.redirect).toHaveBeenCalledWith('/');
+    });
   });
 
   describe('#logout', function () {
