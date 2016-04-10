@@ -12,8 +12,7 @@
     "saml"
   ],
   "scripts": {
-    "test": "jshint bin/ lib/ spec/ package.json && jasmine",
-    "patch": "npm version patch && git push origin --tags && npm publish"
+    "test": "jshint bin/ lib/ spec/ package.json && jasmine"
   },
   "repository": {
     "type": "git",
