@@ -21,21 +21,21 @@
   "author": "André Leite <andre@andre.io>",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "compression": "^1.6.1",
-    "connect-redis": "^3.0.2",
-    "cookie-parser": "^1.4.1",
-    "express": "^4.13.4",
-    "express-session": "^1.13.0",
-    "passport": "^0.3.2",
-    "passport-saml": "^0.15.0",
-    "yargs": "^4.3.2"
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "connect-redis": "^3.3.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "passport": "^0.4.0",
+    "passport-saml": "^0.31.0",
+    "yargs": "^10.0.3"
   },
   "bin": {
     "okta-for-static-site": "./bin/okta-for-static-site"
   },
   "devDependencies": {
-    "jasmine": "^2.4.1",
-    "jshint": "^2.9.1"
+    "jasmine": "^2.8.0",
+    "jshint": "^2.9.5"
   }
 }
